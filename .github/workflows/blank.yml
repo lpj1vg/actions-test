@@ -40,5 +40,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo CHANGED_FILES: $CHANGED_FILES
+          echo CHANGED_FILE: $CHANGED_FILE
           echo PR_NUMBER: $PR_NUMBER
