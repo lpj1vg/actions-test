@@ -4,12 +4,12 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
   pull_request:
+    types: [closed]
     branches: [ "main" ]
-
+    paths:
+      - 'inventory/APP/*.yml'
+    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Get changed inventory files
+        id: get_inventory_files
+        run: |
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'inventory/APP/*.yml')
+          echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -34,3 +40,4 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo YAML de inventario: $CHANGED_FILES
