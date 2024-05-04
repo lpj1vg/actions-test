@@ -29,7 +29,7 @@ jobs:
         id: get_inventory_files
         run: |
           # echo "CHANGED_FILE=${{ github.event.pull_request.head.ref }}/inventory/APP/*.yml" >> $GITHUB_ENV
-          # echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
           if [[ $(git rev-parse --is-shallow-repository) == "true" ]]; then
             git fetch --unshallow
           fi
