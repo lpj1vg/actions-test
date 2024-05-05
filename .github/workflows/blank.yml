@@ -29,9 +29,9 @@ jobs:
         id: get_inventory_files
         run: |
           echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
-          # if [[ $(git rev-parse --is-shallow-repository) == "true" ]]; then
-          #   git fetch --unshallow
-          # fi
+          if [[ $(git rev-parse --is-shallow-repository) == "true" ]]; then
+            git fetch --unshallow
+          fi
           echo "CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'inventory/APP/*.yml' 'inventory/SISU/*.yml' 'inventory/WOS/*.yml' | head -n 1)" >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
