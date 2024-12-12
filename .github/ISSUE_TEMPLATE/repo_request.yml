@@ -4,17 +4,16 @@ description: 'Request a new repository.'
 title: '🗒️ Repository Request: '
 body:
 - type: checkboxes
-  id: operating-systems
+  id: connector-checks
   attributes:
-    label: Which operating systems have you used?
-    description: You may select more than one.
+    label: Debes validar **todas** esta comprobaciones
+    description: Hasta que no estén todas no se podrá hacer PR
     options:
-      - label: macOS
+      - label: ¿Se ha verificado la exitencia del Namespace/Eventhub?
         required: true
-      - label: Windows
+      - label: ¿Se ha verificado el número de particiones del Eventhub sea igual al topic de onprem?
         required: true
-      - label: Linux
+      - label: ¿Se ha verificado la existencia del usuario en Cyberark?
         required: true
   validations:
     required: true  
-  
