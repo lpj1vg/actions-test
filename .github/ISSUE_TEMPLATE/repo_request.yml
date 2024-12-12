@@ -33,7 +33,7 @@ body:
           required: true
         - label: Windows
           required: true
-        - label: Linux
+        - label: **Linux**
           required: true
       validations:
         required: true
