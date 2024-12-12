@@ -23,3 +23,14 @@ body:
       default: 0
     validations:
       required: true
+  - type: checkbox
+    id: comprobaciones
+    attributes:
+      label: 'eventhub'
+      description: 'He verificado la exitencia del EventHub en el Namespace'
+      label: 'topic'
+      description: 'He verificado la exitencia del topic en onprem'
+
+    validations:
+      required: true
+  
