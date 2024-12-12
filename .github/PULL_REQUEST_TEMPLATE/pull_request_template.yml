@@ -1,31 +1,19 @@
+name: '🗒️ Kafka Connector PR' 
+description: 'Crea/Cambia la configuración de un Connector de Kafka'
+title: '🗒️ Connector PR: '
 body:
-  - type: textarea
-    attributes:
-      label: Operating System
-      description: What operating system are you using?
-      placeholder: "Example: macOS Big Sur"
-      value: operating system
-    validations:
-      required: true
-  - type: dropdown
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      multiple: false
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-      default: 0
-    validations:
-      required: true
-  - type: checkboxes
-    attributes:
-      label: Code of Conduct
-      description: The Code of Conduct helps create a safe space for everyone. We require
-        that everyone agrees to it.
-      options:
-        - label: I agree to follow this project's [Code of Conduct](link/to/coc)
-          required: true
-  - type: markdown
-    attributes:
-      value: "Thanks for completing our form!"
+- type: checkboxes
+  id: connector-checks
+  attributes:
+    label: Debes validar **todas** esta comprobaciones
+    description: Hasta que no estén todas no se podrá hacer PR
+    options:
+      - label: ¿Se ha verificado la exitencia del Namespace/Eventhub?
+        required: true
+      - label: ¿Se ha verificado el número de particiones del Eventhub sea igual al topic de onprem?
+        required: true
+      - label: ¿Se ha verificado la existencia del usuario en Cyberark?
+        required: true
+  validations:
+    required: true  
+  
