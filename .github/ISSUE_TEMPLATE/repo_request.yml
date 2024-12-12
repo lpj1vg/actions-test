@@ -15,4 +15,6 @@ body:
         required: true
       - label: Linux
         required: true
+  validations:
+    required: true  
   
