@@ -24,13 +24,12 @@ body:
     validations:
       required: true
   - type: checkboxes
-    id: comprobaciones
+    id: operating-systems
     attributes:
-      label: 'eventhub'
-      description: 'He verificado la exitencia del EventHub en el Namespace'
-      label: 'topic'
-      description: 'He verificado la exitencia del topic en onprem'
-
-    validations:
-      required: true
+      label: Which operating systems have you used?
+      description: You may select more than one.
+      options:
+        - label: macOS
+        - label: Windows
+        - label: Linux
   
